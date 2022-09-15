@@ -1,0 +1,23 @@
+#include<stdio.h>
+struct Node {
+	int data;
+	struct Node *next;
+};
+void main()
+{
+	struct Node *first = (struct Node *)malloc(sizeof(struct Node));
+	struct Node *sec = (struct Node *)malloc(sizeof(struct Node));
+	struct Node *third = (struct Node *)malloc(sizeof(struct Node));
+	first -> data = 10;
+	first -> next = sec;
+	
+	sec -> data = 20;
+	sec -> next = third;
+	
+	third -> data = 30;
+	third -> next = NULL;
+	
+	printf("Nodes created:\n");
+	printList(first);
+}
+

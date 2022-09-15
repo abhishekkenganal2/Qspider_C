@@ -1,0 +1,181 @@
+(24-09-21)
+Pointers: 
+		Compile time
+	-> a[2] ==> *(a + 2)
+	-> 2[a] <== *(2 + a)
+	-> Array names are treated as Macro's and Hence Array starting address is constant. 
+	-> Macro's don't have memory.
+	
+	Ex: int a[4] = { 10,20,30,40 };
+			printf("%d",*a);
+			a++;
+			printf("%d",*a + 1);
+						10 + 1 = 11
+			printf("%d",*(a+1));
+							20
+Program:
+#include<stdio.h>
+void main()
+{
+	int a[] = { 1.1,2.2,3.3,4.4,5.5};
+	int *p, *q, i;
+	p = q = a;
+	for(i=0;i < 5;i++)
+	{
+		printf("%d\t",*a);
+		q++;
+	}
+	printf("\n");
+	for(i=0;i < 5;i++)
+	{
+		printf("%d\t",*p);
+		p++;
+	}
+}
+
+Implementing pointers in 2D array:
+	2D Array:- 
+	Syntax: data_type arr_name[row][col];
+	Ex: int a[2][2];
+	
+Traversing 2D array:
+	for(i = 0;i <rows;i++)
+	{	
+		for(j=0;j < col;j++)
+		{
+			printf("%d",a[i][j]);
+		}
+	}
+
+Rules:
+	1) Replace a by a[0].
+	2) When we apply * on a[i], we will get address of first elem in i i th row i.e, a[i][0].
+	3) During addition add the no's to last index.
+	
+	Ex: * (*a + 2)						2) *(*(a + 2)+1)
+		= *( *a[0] + 2)					  = *(*a[2] + 1)	
+		= *(a[0][0] + 2)				  = *(a[2][1])
+		= *(a[0][2])					  = 80.
+		= 30.
+
+		3) *(*(a + 2) + 1) + 1
+			80 + 1 (error) 
+
+
+Ex : write a prog to sort 1st k elem in a asending order and remaining elements in descending order.(No extra array) --> k_sort.c
+
+<----- CLRS book for datastructure and algorithms ----->
+
+FUNCTIONS:
+
+set of statements,which performs a task.
+
+1. function definition.
+	
+	- ANSI Style
+	syntax: 
+			return_type fun_name(para_defination)
+			{
+				statements;
+			}
+	Ex:
+		int add(int x,int y)
+		{
+			return x + y;
+		}
+	- Non-ANSE Style
+	syntax: 
+			return_type fn_name(para_list)
+			parameter_definition;
+			{
+				statements;
+			}
+			
+	Ex:
+		int add(x,y)
+		int x,y;
+		{
+			return x + y;
+		}
+ 
+2. function prototype/declaration.
+
+	syntax: 
+			return_type fn_name(data_type_and_type_of_para);
+			
+	Ex:
+		int add(int a,int b);			
+
+3.function call:
+	
+	syntax:
+			fn_name(para_list);
+		
+	Ex:
+		add(x,y);
+		
+4. parameteer passing technique:
+
+a) Call by value:
+ 	
+ 		- we pass values as parameter.
+ 		- fun def creates its own copy data.
+ 		- any changes made to those copies will not reflect back in calling function.
+
+b) Call by Address:
+
+		- we pass address as parameters.
+		- any changes made using those addresses will reflect back in calling function.
+		-save of memory
+		
+		
+Advantage of Pointers:
+
+		- avoids duplication of data.
+		- save of memory.
+		
+5. Recursion:
+
+		IP/PC: Instruction Pointer or Program Counter
+		
+		Ex:
+			int main()
+			{
+				printf("ALVAS");
+				main();
+				return 0;
+			}
+			
+			Output:Stack 	
+		
+Storage Classes:
+		
+		1.auto => auto int x;
+			   => memory => stack.
+			   => default storage class for all local variables.
+			   
+		2.Register => register int x;
+				   => memory => General purpose register.
+				   => Adv -> faster access.
+				   
+		3.Static => It must be initialised ,not default is 0.
+				-> Multiple inisialition in the same scope will be skipped.
+				-> static variable can remember its value from fun call.
+				-> It cannot be used as formal arguments.
+				-> Scope -> throughtout the program.
+					int main()
+					{
+						statuc int i=5;
+						if(--i)
+						{
+							main();
+							printf("%d",i);
+						}
+					}
+			
+
+
+
+
+
+
