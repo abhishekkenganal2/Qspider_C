@@ -6,5 +6,5 @@ void main()
 	scanf("%d",&a);
 	p = isperfectsq(5 * n * n + 4) || isperfectsq(5 * n * n - 4)
 	return p;
-	
+}
 	
