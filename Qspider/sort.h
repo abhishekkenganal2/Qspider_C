@@ -33,7 +33,7 @@ void insertion_sort()
     }
 }
 
-selection_sort()
+void selection_sort()
 {
     int i, j, a[50], min, temp;
     for (i = 0; i < n - 1; i++)
